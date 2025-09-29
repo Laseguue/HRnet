@@ -1,0 +1,44 @@
+import SelectMenu from '../SelectMenu/SelectMenu'
+
+function EmployeeAdress({ errors = {} }) {
+            const states = [
+                { value: 'AL', label: 'Alabama' }, { value: 'AK', label: 'Alaska' }, { value: 'AZ', label: 'Arizona' },
+                { value: 'AR', label: 'Arkansas' }, { value: 'CA', label: 'California' }, { value: 'CO', label: 'Colorado' },
+                { value: 'CT', label: 'Connecticut' }, { value: 'DE', label: 'Delaware' }, { value: 'FL', label: 'Florida' },
+                { value: 'GA', label: 'Georgia' }, { value: 'HI', label: 'Hawaii' }, { value: 'ID', label: 'Idaho' },
+                { value: 'IL', label: 'Illinois' }, { value: 'IN', label: 'Indiana' }, { value: 'IA', label: 'Iowa' },
+                { value: 'KS', label: 'Kansas' }, { value: 'KY', label: 'Kentucky' }, { value: 'LA', label: 'Louisiana' },
+                { value: 'ME', label: 'Maine' }, { value: 'MD', label: 'Maryland' }, { value: 'MA', label: 'Massachusetts' },
+                { value: 'MI', label: 'Michigan' }, { value: 'MN', label: 'Minnesota' }, { value: 'MS', label: 'Mississippi' },
+                { value: 'MO', label: 'Missouri' }, { value: 'MT', label: 'Montana' }, { value: 'NE', label: 'Nebraska' },
+                { value: 'NV', label: 'Nevada' }, { value: 'NH', label: 'New Hampshire' }, { value: 'NJ', label: 'New Jersey' },
+                { value: 'NM', label: 'New Mexico' }, { value: 'NY', label: 'New York' }, { value: 'NC', label: 'North Carolina' },
+                { value: 'ND', label: 'North Dakota' }, { value: 'OH', label: 'Ohio' }, { value: 'OK', label: 'Oklahoma' },
+                { value: 'OR', label: 'Oregon' }, { value: 'PA', label: 'Pennsylvania' }, { value: 'RI', label: 'Rhode Island' },
+                { value: 'SC', label: 'South Carolina' }, { value: 'SD', label: 'South Dakota' }, { value: 'TN', label: 'Tennessee' },
+                { value: 'TX', label: 'Texas' }, { value: 'UT', label: 'Utah' }, { value: 'VT', label: 'Vermont' },
+                { value: 'VA', label: 'Virginia' }, { value: 'WA', label: 'Washington' }, { value: 'WV', label: 'West Virginia' },
+                { value: 'WI', label: 'Wisconsin' }, { value: 'WY', label: 'Wyoming' }
+            ]
+    return (
+        <div className="EmployeeContainer EmployeeAdress">
+            <p className="title-form">Employee Adress</p>
+            <div className="form-employee">
+                <label form="street">Street :</label>
+                <input type="text" id="street" name="street" placeholder="Enter your street" required></input>
+                <span className="field-error" id="error-street" aria-live="polite">{errors['street'] || ''}</span>
+                <label form="city">City :</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" required></input>
+                <span className="field-error" id="error-city" aria-live="polite">{errors['city'] || ''}</span>
+                <label form="state">State :</label>
+                <SelectMenu id="state" name="state" placeholder="Select a state" options={states} required />
+                <span className="field-error" id="error-state" aria-live="polite">{errors['state'] || ''}</span>
+                <label form="zip">Zip Code :</label>
+                <input type="text" id="zip" name="zip" placeholder="Enter your zip code" required></input>
+                <span className="field-error" id="error-zip" aria-live="polite">{errors['zip'] || ''}</span>
+            </div>
+        </div>
+    )
+  }
+  
+  export default EmployeeAdress

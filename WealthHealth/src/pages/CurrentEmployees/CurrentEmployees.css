@@ -1,0 +1,18 @@
+.current-employees-container {
+  padding: 1rem;
+}
+.table-wrapper {
+  overflow-x: auto;
+}
+.employees-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.employees-table th, .employees-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.employees-table th {
+  background: #f4f4f4;
+}
