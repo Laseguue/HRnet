@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addEmployee } from '../../store/employeesSlice'
 import EmployeeAdress from './EmployeeAdress'
 import EmployeeInfos from './EmployeeInfos'
 import SaveBtn from './SaveBtn'
 import Modal from '../Modal/Modal'
 
 function Main() {
+        const dispatch = useDispatch()
         const [errors, setErrors] = useState({})
         const [showModal, setShowModal] = useState(false)
 
@@ -66,12 +69,7 @@ function Main() {
                 zipCode: formData.get('zip')?.trim() || ''
             }
 
-            const employees = JSON.parse(localStorage.getItem('employees')) || []
-            employees.push(employee)
-            localStorage.setItem('employees', JSON.stringify(employees))
-
-            window.dispatchEvent(new CustomEvent('employees:added', { detail: [employee] }))
-
+            dispatch(addEmployee(employee))
             setShowModal(true)
             form.reset()
                 }

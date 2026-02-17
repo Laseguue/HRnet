@@ -1,26 +1,10 @@
-import { useEffect, useState, useRef } from 'react'
+import { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import './CurrentEmployees.css'
 
 function CurrentEmployees() {
-  const [employees, setEmployees] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem('employees')) || []
-    } catch (e) {
-      return []
-    }
-  })
+  const employees = useSelector((state) => state.employees)
   const listRef = useRef(null)
-
-  useEffect(() => {
-    function handleAdded(e) {
-      const newEmployees = e.detail && Array.isArray(e.detail) ? e.detail : []
-      if (newEmployees.length === 0) return
-      setEmployees((prev) => [...prev, ...newEmployees])
-    }
-
-    window.addEventListener('employees:added', handleAdded)
-    return () => window.removeEventListener('employees:added', handleAdded)
-  }, [])
 
   return (
     <div className="current-employees-container">

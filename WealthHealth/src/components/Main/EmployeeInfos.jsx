@@ -1,5 +1,5 @@
 import DatePicker from '../DatePicker/DatePicker'
-import SelectMenu from '../SelectMenu/SelectMenu'
+import SelectMenu from 'hrnet-select-menu'
 
 function EmployeeInfos({ errors = {} }) {
     const departments = [

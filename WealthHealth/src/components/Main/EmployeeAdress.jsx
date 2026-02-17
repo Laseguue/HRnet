@@ -1,4 +1,4 @@
-import SelectMenu from '../SelectMenu/SelectMenu'
+import SelectMenu from 'hrnet-select-menu'
 
 function EmployeeAdress({ errors = {} }) {
             const states = [
